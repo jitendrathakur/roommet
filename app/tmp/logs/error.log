@@ -1,0 +1,180 @@
+2013-07-07 17:39:07 Error: Fatal Error (1): Call to undefined method UsersController::setFlash() in [/var/www/roommet/app/Controller/UsersController.php, line 210]
+2013-07-07 17:39:07 Error: [FatalErrorException] Call to undefined method UsersController::setFlash()
+Request URL: /roommet/users/login
+Stack Trace:
+#0 /var/www/roommet/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/roomme...', 210)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/roomme...', 210, Array)
+#2 /var/www/roommet/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/roomme...', 210, Array)
+#3 /var/www/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-07-07 17:48:58 Error: Fatal Error (4): syntax error, unexpected ')' in [/var/www/roommet/app/Controller/UsersController.php, line 28]
+2013-07-07 17:48:58 Error: [FatalErrorException] syntax error, unexpected ')'
+Request URL: /roommet/users/signup
+Stack Trace:
+#0 /var/www/roommet/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/roomme...', 28)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/roomme...', 28, Array)
+#2 /var/www/roommet/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/roomme...', 28, Array)
+#3 /var/www/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-07-07 18:03:30 Error: [MissingHelperException] Helper class AuthHelper could not be found.
+Exception Attributes: array (
+  'class' => 'AuthHelper',
+  'plugin' => false,
+)
+Request URL: /roommet/products/view/1
+Stack Trace:
+#0 /var/www/roommet/lib/Cake/View/HelperCollection.php(63): HelperCollection->load('Auth')
+#1 /var/www/roommet/lib/Cake/View/View.php(836): HelperCollection->__isset('Auth')
+#2 /var/www/roommet/app/View/Layouts/default.ctp(46): View->__get('Auth')
+#3 /var/www/roommet/lib/Cake/View/View.php(948): include('/var/www/roomme...')
+#4 /var/www/roommet/lib/Cake/View/View.php(910): View->_evaluate('/var/www/roomme...', Array)
+#5 /var/www/roommet/lib/Cake/View/View.php(535): View->_render('/var/www/roomme...')
+#6 /var/www/roommet/lib/Cake/View/View.php(479): View->renderLayout('', 'default')
+#7 /var/www/roommet/lib/Cake/Controller/Controller.php(948): View->render(NULL, NULL)
+#8 /var/www/roommet/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#9 /var/www/roommet/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest), Object(CakeResponse))
+#10 /var/www/roommet/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2013-07-07 18:06:12 Error: [NotFoundException] Invalid product
+Request URL: /roommet/products/view/controllers:users/actions:logout
+Stack Trace:
+#0 [internal function]: ProductsController->view()
+#1 /var/www/roommet/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(ProductsController), Array)
+#2 /var/www/roommet/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /var/www/roommet/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest), Object(CakeResponse))
+#4 /var/www/roommet/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-07-07 18:08:00 Error: [MissingActionException] Action UsersController::forgot_password() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'forgot_password',
+)
+Request URL: /roommet/users/forgot_password
+Stack Trace:
+#0 /var/www/roommet/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/roommet/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/roommet/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-07-07 18:14:11 Error: Fatal Error (64): Can't use method return value in write context in [/var/www/roommet/app/View/Layouts/default.ctp, line 49]
+2013-07-07 18:14:11 Error: [FatalErrorException] Can't use method return value in write context
+Request URL: /roommet/users/login
+Stack Trace:
+#0 /var/www/roommet/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(64, 'Can't use metho...', '/var/www/roomme...', 49)
+#1 [internal function]: ErrorHandler::handleError(64, 'Can't use metho...', '/var/www/roomme...', 49, Array)
+#2 /var/www/roommet/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 64, 'Can't use metho...', '/var/www/roomme...', 49, Array)
+#3 /var/www/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-07-07 18:26:40 Error: Fatal Error (4): syntax error, unexpected T_DOUBLE_ARROW in [/var/www/roommet/app/Controller/ProductsController.php, line 60]
+2013-07-07 18:26:40 Error: [FatalErrorException] syntax error, unexpected T_DOUBLE_ARROW
+Request URL: /roommet/products/add
+Stack Trace:
+#0 /var/www/roommet/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/roomme...', 60)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/roomme...', 60, Array)
+#2 /var/www/roommet/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/roomme...', 60, Array)
+#3 /var/www/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-07-07 18:37:21 Error: Fatal Error (4): syntax error, unexpected ';' in [/var/www/roommet/app/Controller/UsersController.php, line 72]
+2013-07-07 18:37:21 Error: [FatalErrorException] syntax error, unexpected ';'
+Request URL: /roommet/users/signup
+Stack Trace:
+#0 /var/www/roommet/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/roomme...', 72)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/roomme...', 72, Array)
+#2 /var/www/roommet/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/roomme...', 72, Array)
+#3 /var/www/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-07-07 18:54:37 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'created' in where clause is ambiguous
+Request URL: /roommet/products/total_by_date
+Stack Trace:
+#0 /var/www/roommet/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /var/www/roommet/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('SELECT `Product...', Array)
+#2 /var/www/roommet/lib/Cake/Model/Datasource/DboSource.php(670): DboSource->execute('SELECT `Product...', Array, Array)
+#3 /var/www/roommet/lib/Cake/Model/Datasource/DboSource.php(1081): DboSource->fetchAll('SELECT `Product...', false)
+#4 /var/www/roommet/lib/Cake/Model/Model.php(2688): DboSource->read(Object(Product), Array)
+#5 /var/www/roommet/app/Controller/ProductsController.php(224): Model->find('all', Array)
+#6 [internal function]: ProductsController->total_by_date()
+#7 /var/www/roommet/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(ProductsController), Array)
+#8 /var/www/roommet/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#9 /var/www/roommet/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest), Object(CakeResponse))
+#10 /var/www/roommet/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2013-07-07 18:58:51 Error: Fatal Error (4): syntax error, unexpected T_DOUBLE_ARROW in [/var/www/roommet/app/Controller/ProductsController.php, line 228]
+2013-07-07 18:58:51 Error: [FatalErrorException] syntax error, unexpected T_DOUBLE_ARROW
+Request URL: /roommet/products/total_by_date
+Stack Trace:
+#0 /var/www/roommet/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/roomme...', 228)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/roomme...', 228, Array)
+#2 /var/www/roommet/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/roomme...', 228, Array)
+#3 /var/www/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-07-07 19:03:51 Error: Fatal Error (4): syntax error, unexpected ')' in [/var/www/roommet/app/Controller/ProductsController.php, line 230]
+2013-07-07 19:03:51 Error: [FatalErrorException] syntax error, unexpected ')'
+Request URL: /roommet/products/total_by_date
+Stack Trace:
+#0 /var/www/roommet/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/roomme...', 230)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/roomme...', 230, Array)
+#2 /var/www/roommet/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/roomme...', 230, Array)
+#3 /var/www/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-07-07 19:04:11 Error: Fatal Error (4): syntax error, unexpected ')' in [/var/www/roommet/app/Controller/ProductsController.php, line 231]
+2013-07-07 19:04:11 Error: [FatalErrorException] syntax error, unexpected ')'
+Request URL: /roommet/products/total_by_date
+Stack Trace:
+#0 /var/www/roommet/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/roomme...', 231)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/roomme...', 231, Array)
+#2 /var/www/roommet/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/roomme...', 231, Array)
+#3 /var/www/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-07-07 19:05:09 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'list' at line 1
+Request URL: /roommet/products/total_by_date
+Stack Trace:
+#0 /var/www/roommet/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /var/www/roommet/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('list', Array)
+#2 /var/www/roommet/lib/Cake/Model/Datasource/DboSource.php(670): DboSource->execute('list', Array, Array)
+#3 /var/www/roommet/lib/Cake/Model/Datasource/DboSource.php(612): DboSource->fetchAll('list', Array, Array)
+#4 /var/www/roommet/lib/Cake/Model/Model.php(800): DboSource->query('list', Array, Object(Product))
+#5 /var/www/roommet/app/Controller/ProductsController.php(231): Model->__call('list', Array)
+#6 /var/www/roommet/app/Controller/ProductsController.php(231): Product->list('all', Array)
+#7 [internal function]: ProductsController->total_by_date()
+#8 /var/www/roommet/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(ProductsController), Array)
+#9 /var/www/roommet/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/roommet/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest), Object(CakeResponse))
+#11 /var/www/roommet/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-07-07 19:07:27 Error: Fatal Error (4): syntax error, unexpected '<' in [/var/www/roommet/app/Controller/ProductsController.php, line 233]
+2013-07-07 19:07:27 Error: [FatalErrorException] syntax error, unexpected '<'
+Request URL: /roommet/products/total_by_date
+Stack Trace:
+#0 /var/www/roommet/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/roomme...', 233)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/roomme...', 233, Array)
+#2 /var/www/roommet/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/roomme...', 233, Array)
+#3 /var/www/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-07-07 19:10:52 Error: Fatal Error (4): syntax error, unexpected ':' in [/var/www/roommet/app/View/Products/total_by_date.ctp, line 10]
+2013-07-07 19:10:52 Error: [FatalErrorException] syntax error, unexpected ':'
+Request URL: /roommet/products/total_by_date
+Stack Trace:
+#0 /var/www/roommet/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/roomme...', 10)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/roomme...', 10, Array)
+#2 /var/www/roommet/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/roomme...', 10, Array)
+#3 /var/www/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-07-07 19:13:52 Error: Fatal Error (4): syntax error, unexpected ';', expecting ')' in [/var/www/roommet/app/Controller/ProductsController.php, line 233]
+2013-07-07 19:13:52 Error: [FatalErrorException] syntax error, unexpected ';', expecting ')'
+Request URL: /roommet/products/total_by_date
+Stack Trace:
+#0 /var/www/roommet/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/roomme...', 233)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/roomme...', 233, Array)
+#2 /var/www/roommet/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/roomme...', 233, Array)
+#3 /var/www/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
