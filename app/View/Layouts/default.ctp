@@ -30,7 +30,11 @@ $cakeDescription = __d('cake_dev', '');
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
+		echo $this->Html->css(array('bootstrap.min', 'bootstrap-responsive.min', 'custom'));
+		echo $this->Html->script(array('jquery-1.7.1.min', 'bootstrap.min', 'custom')); ?>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		<?php
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -38,28 +42,20 @@ $cakeDescription = __d('cake_dev', '');
 	?>
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
-		</div>
-		<div id="content">
-			<?php echo $this->Session->read('Auth.User.nickname'); ?>
-			<?php
+	<?php echo $this->Element('navbar'); ?>
+	<div id="container" class="container">	
 
-			$userId = $this->Session->read('Auth.User.id');
+		<div class="row">
+            <div class="span12">
+		
+				
+				
+					<?php echo $this->Session->flash(); ?>
 
-			if (!empty($userId)) {
-				 echo $this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout'));
-				 echo "<br>";
-				 echo $this->Html->link('<button>Total by date</button>', array('controller' => 'products', 'action' => 'total_by_date'), array('escape' => false));				
-			}
-
-			 ?>
-
-			<?php echo $this->Session->flash(); ?>
-
-			<?php echo $this->fetch('content'); ?>
-		</div>
+					<?php echo $this->fetch('content'); ?>
+		
+		    </div>           
+        </div>
 		<div id="footer">
 			<?php echo $this->Html->link(
 					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),

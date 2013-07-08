@@ -29,6 +29,11 @@ class User extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+			'unique' => array(
+		        'rule' => 'isUnique',
+		        'message' => 'This username already taken',
+		        'required' => 'create'
+		    ),
 		),
 		'password' => array(
 			'notempty' => array(
@@ -82,7 +87,7 @@ class User extends AppModel {
    *
    * @return void.
    */
-  public function beforeSave() {
+  public function beforeSave($options = array()) {
     if(isset($this->data['User']['password'])) {
       $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
     }

@@ -56,14 +56,15 @@ class ProductsController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
+
 			$this->Product->create();
 			$this->request->data['Product']['user_id'] = $this->Auth->user('id');
 			
 			if ($this->Product->save($this->request->data)) {
-				$this->Session->setFlash(__('The product has been saved'));
+				$this->setFlash(__('The product has been saved'), 'success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The product could not be saved. Please, try again.'));
+				$this->setFlash(__('The product could not be saved. Please, try again.'), 'failure');
 			}
 		}
 		$users = $this->Product->User->find('list');
@@ -81,17 +82,22 @@ class ProductsController extends AppController {
 		if (!$this->Product->exists($id)) {
 			throw new NotFoundException(__('Invalid product'));
 		}
+
 		if ($this->request->is('post') || $this->request->is('put')) {
 			$this->request->data['Product']['user_id'] = $this->Auth->user('id');
 			if ($this->Product->save($this->request->data)) {
-				$this->Session->setFlash(__('The product has been saved'));
+				$this->setFlash(__('The product has been saved'), 'success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The product could not be saved. Please, try again.'));
+				$this->setFlash(__('The product could not be saved. Please, try again.'), 'failure');
 			}
 		} else {
 			$options = array('conditions' => array('Product.' . $this->Product->primaryKey => $id));
 			$this->request->data = $this->Product->find('first', $options);
+		}
+	
+		if ($this->Session->read('Auth.User.id') != $this->request->data['Product']['user_id']) {
+			throw new MethodNotAllowedException();
 		}
 		$users = $this->Product->User->find('list');
 		$this->set(compact('users'));
@@ -112,10 +118,11 @@ class ProductsController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Product->delete()) {
-			$this->Session->setFlash(__('Product deleted'));
+			$this->setFlash(__('Product deleted'));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Product was not deleted'));
+
+		$this->setFlash(__('Product was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
 
@@ -153,10 +160,10 @@ class ProductsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Product->create();
 			if ($this->Product->save($this->request->data)) {
-				$this->Session->setFlash(__('The product has been saved'));
+				$this->setFlash(__('The product has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The product could not be saved. Please, try again.'));
+				$this->setFlash(__('The product could not be saved. Please, try again.'));
 			}
 		}
 		$users = $this->Product->User->find('list');
@@ -176,10 +183,10 @@ class ProductsController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Product->save($this->request->data)) {
-				$this->Session->setFlash(__('The product has been saved'));
+				$this->setFlash(__('The product has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The product could not be saved. Please, try again.'));
+				$this->setFlash(__('The product could not be saved. Please, try again.'));
 			}
 		} else {
 			$options = array('conditions' => array('Product.' . $this->Product->primaryKey => $id));
@@ -204,15 +211,17 @@ class ProductsController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Product->delete()) {
-			$this->Session->setFlash(__('Product deleted'));
+			$this->setFlash(__('Product deleted'));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Product was not deleted'));
+		$this->setFlash(__('Product was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
 
 	function total_by_date() {
 
+		$users = $this->Product->User->find('list', array('fields' => array('nickname')));
+		
 		if ($this->request->is('post') || $this->request->is('put')) {
 
 
@@ -242,15 +251,15 @@ class ProductsController extends AppController {
 					'conditions' => $conditions
 					)
 
-				);
-
-			echo "<h2>Total amount is:". array_sum($result);
-			//return;
+				);	
+		 
+			$totalAmount = array_sum($result);
+		
+		    
 
 		}
-
-		$users = $this->Product->User->find('list', array('fields' => array('nickname')));
-		$this->set(compact('users'));
+		
+		$this->set(compact('users', 'totalAmount'));
 
 	}
 }

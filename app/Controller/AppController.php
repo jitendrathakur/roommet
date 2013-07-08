@@ -89,5 +89,36 @@ class AppController extends Controller {
   }//end setFlash()
 
 
+  public function beforeRender() {
+    $this->set(
+        'twitterBootstrapCreateOptions', 
+        array(
+         'class'         => 'form-horizontal well',
+         'inputDefaults' => array(
+                             'div'     => array('class' => 'control-group'),
+                             'label'   => array('class' => 'control-label'),
+                             'error'   => array('attributes' => array(
+                                                                 'wrap' => 'span',
+                                                                 'class' => 'help-inline',
+                                                                )
+                                          ),
+                             'between' => '<div class="controls">',
+                             'after'   => '</div>',
+                             'format'  => array('before', 'label', 'between', 'input', 'error', 'after')
+                            ),
+        )
+    );
+    $this->set(
+        'twitterBootstrapEndOptions',
+        array(
+            'label' => __('Submit'),
+            'class' => 'btn btn-primary',
+            'div'   => array('class' => 'form-actions'),
+        )
+    );
+
+  }
+
+
 
 }

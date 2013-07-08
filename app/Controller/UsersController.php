@@ -45,20 +45,7 @@ class UsersController extends AppController {
 		$this->set('users', $this->paginate());
 	}
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
-		if (!$this->User->exists($id)) {
-			throw new NotFoundException(__('Invalid user'));
-		}
-		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
-		$this->set('user', $this->User->find('first', $options));
-	}
+
 
 /**
  * add method
@@ -84,7 +71,7 @@ class UsersController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+/*	public function edit($id = null) {
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
@@ -99,7 +86,7 @@ class UsersController extends AppController {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 			$this->request->data = $this->User->find('first', $options);
 		}
-	}
+	}*/
 
 /**
  * delete method
@@ -233,7 +220,7 @@ class UsersController extends AppController {
        // }
         //this function returns redirect path by user's role
        // $this->getRedirectPath();
-        $this->redirect(array('controller' => 'products', 'view' => 'index'));
+        $this->redirect(array('controller' => 'products', 'action' => 'index'));
       } else {
         $this->setFlash('Your username or password was incorrect.', 'error');
       }

@@ -1,22 +1,22 @@
 <div class="home-bg">
 <div id="signin">
-    <h2>Room Met Classy Software!</h2>
+   
     <div class="error"></div>
     <?php
     echo $this->Session->flash('auth', array('params' => array('class' => 'alert alert-error')));
     echo $this->Session->flash('flash');
     $inputDefaults['label'] = false;
-    echo $this->Form->create('User');
+    echo $this->Form->create('User', $twitterBootstrapCreateOptions);
     // debug($inputDefaults);
 
-    ?>
+    ?>    
       <fieldset id="inputs">
         <?php
         echo $this->Form->input(
           'username',
           array(
             'label' => false,
-            'div' => false,
+           // 'div' => false,
             'placeholder' => 'Username',
             'autofocus' => 'autofocus'
           )
@@ -25,29 +25,22 @@
           'password',
           array(
             'label' => false,
-            'div' => false,
+            //'div' => false,
             'placeholder' => 'Password'
           )
         );
         echo $this->Form->submit(
           __('Sign in'),
-          array(
-            'class'=>'button small',
-            'label' => false,
-            'div' => false
+          array(          
+            'class' => 'btn btn-primary',
+            'div'   => array('class' => 'form-actions'),
+            'label' => false,          
           )
         );
         ?>
       </fieldset>
       <fieldset id="actions">
-        <ul>
-          <li>
-          <?php
-         
-          ?>
-          </li>
-        </ul>
-         <?php
+              <?php
         echo $this->Html->link(
           'Create New Account',
           array(

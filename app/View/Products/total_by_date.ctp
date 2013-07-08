@@ -1,18 +1,26 @@
 <div class="products form">
 <?php
 
+if (isset($totalAmount)) {
+	if (!empty($totalAmount)) {
+		echo "<pre>Total amount is : $totalAmount</pre>";
+	} else {
+		echo "<pre>No Record found for this time duration.</pre>";
+	}
+}
 
-echo $this->Form->create('Product');
 
-echo $this->Form->input('start_date', array('placeHolder' => '2013-12-07'));
+echo $this->Form->create('Product', $twitterBootstrapCreateOptions);
+
+echo $this->Form->input('start_date');
 
 echo $this->Form->input('end_date');
 
-echo 'optional: '.$this->Form->input('user_id', array('empty' => 'select any')); 
+echo $this->Form->input('user_id', array('empty' => 'select any')); 
 
 
 
-echo $this->Form->end('Submit');
+echo $this->Form->end($twitterBootstrapEndOptions);
 
 ?>
 
