@@ -30,6 +30,10 @@ class ProductsController extends AppController {
  * @return void
  */
 	public function index() {
+
+        $this->paginate = array(
+	        'conditions' => array('Product.room_id' => $this->Auth->user('room_id'))	       
+	    ); 
 		$this->Product->recursive = 0;
 		$this->set('products', $this->paginate());
 	}
@@ -59,6 +63,7 @@ class ProductsController extends AppController {
 
 			$this->Product->create();
 			$this->request->data['Product']['user_id'] = $this->Auth->user('id');
+			$this->request->data['Product']['room_id'] = $this->Auth->user('room_id');
 			
 			if ($this->Product->save($this->request->data)) {
 				$this->setFlash(__('The product has been saved'), 'success');
@@ -223,25 +228,26 @@ class ProductsController extends AppController {
 		$users = $this->Product->User->find('list', array('fields' => array('nickname')));
 		
 		if ($this->request->is('post') || $this->request->is('put')) {
-
-
+			       
 			$conditions = array('Product.created BETWEEN ? AND ?' => 
-							array(
-								$this->request->data['Product']['start_date'],
-								$this->request->data['Product']['end_date']
-							)
-						);
+				array(
+					$this->request->data['Product']['start_date'],
+					$this->request->data['Product']['end_date']
+				),
+				'Product.room_id' => $this->Auth->user('room_id')
+			);
 
 			if (!empty($this->request->data['Product']['user_id'])) {
 
-						$conditions = array('Product.created BETWEEN ? AND ?' => 
-							array(
-								$this->request->data['Product']['start_date'],
-								$this->request->data['Product']['end_date']
-							),
-							'user_id' => $this->request->data['Product']['user_id']
+				$conditions = array('Product.created BETWEEN ? AND ?' => 
+					array(
+						$this->request->data['Product']['start_date'],
+						$this->request->data['Product']['end_date']
+					),
+					'Product.room_id' => $this->Auth->user('room_id'),
+					'user_id' => $this->request->data['Product']['user_id']
 
-						);
+				);
 
 			}
 
@@ -249,17 +255,35 @@ class ProductsController extends AppController {
 				array(
 					'fields' => array('Product.price'),
 					'conditions' => $conditions
+				)
+			);	
+
+			$data = $this->Product->find('all', 
+				array(
+					//'fields' => array('Product.price'),
+					'conditions' => $conditions,
+					'order' => 'user_id'
+				)
+
+			);	
+
+			$total = $this->Product->find('all', 
+				array(
+					'fields' => array('User.nickname', 'sum(Product.price) as total'),
+					'conditions' => $conditions,
+					'order' => 'user_id',
+					'group' => 'user_id'
 					)
 
-				);	
+				);		
+			
 		 
-			$totalAmount = array_sum($result);
-		
+			$totalAmount = array_sum($result);		
 		    
 
 		}
 		
-		$this->set(compact('users', 'totalAmount'));
+		$this->set(compact('users', 'totalAmount', 'data', 'total'));
 
 	}
 }

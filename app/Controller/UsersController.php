@@ -41,6 +41,9 @@ class UsersController extends AppController {
  * @return void
  */
 	public function index() {
+		$this->paginate = array(
+	        'conditions' => array('User.room_id' => $this->Auth->user('room_id'))	       
+	    );
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
 	}
