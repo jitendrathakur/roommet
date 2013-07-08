@@ -53,13 +53,29 @@ class UsersController extends AppController {
  * @return void
  */
 	public function signup() {
+
+		if ($this->Auth->user('id')) {
+	  		$this->redirect(array('controller' => 'products', 'action' => 'index'));
+	  	}
+
+        $flag = true;
 		if ($this->request->is('post')) {
-			$this->User->create();
-			if ($this->User->save($this->request->data)) {
+
+			$result = $this->User->Room->field('id', array('code' => $this->request->data['User']['code']));
+			if ($result == false) {
+				$this->setFlash(__('The code you inserted was not correct. Please, try again.'), 'error');
+			    $flag = false;
+			} else {
+				$this->request->data['User']['room_id'] = $result;
+
+			}
+			
+			$this->User->create();			
+			if ($flag && $this->User->save($this->request->data)) {
 				$this->setFlash(__('The user has been saved', 'success'));
 				$this->redirect(array('action' => 'login'));
 			} else {
-				$this->setFlash(__('The user could not be saved. Please, try again.'), 'error');
+				$this->setFlash(__('The code you inserted was not correct. Please, try again.'), 'error');
 			}
 		}
 	}
@@ -205,6 +221,10 @@ class UsersController extends AppController {
    * @return void
    */
   function login() {
+
+  	if ($this->Auth->user('id')) {
+  		$this->redirect(array('controller' => 'products', 'action' => 'index'));
+  	}
    
     if ($this->request->is('post')) {
       if ($this->Auth->login()) {
@@ -227,6 +247,8 @@ class UsersController extends AppController {
     }
     
   }//end login()
+
+
  /**
    * logout method
    *
@@ -237,5 +259,19 @@ class UsersController extends AppController {
     $this->redirect($this->Auth->logout());
   }//end logout()
 
+
+	/**
+	 * add method
+	 *
+	 * @return void
+	 */
+	public function get_code() {
+
+       
+
+		$result = $this->User->find('first', array('conditions' => array('User.id' => $this->Auth->user('id'))));
+		
+		$this->set('code', $result['Room']['code'])	;
+	}
 
 }

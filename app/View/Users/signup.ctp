@@ -6,6 +6,7 @@
 		echo $this->Form->input('username');
 		echo $this->Form->input('password');
 		echo $this->Form->input('nickname');
+		echo $this->Form->input('code');
 	?>
 	</fieldset>
 <?php echo $this->Form->end($twitterBootstrapEndOptions); ?>

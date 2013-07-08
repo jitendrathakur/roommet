@@ -107,3 +107,19 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
+
+
+/**
+   * Method used to generate random password string
+   *
+   * @return string
+   */
+  function randomChars($lenghts=null) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
+    $string = null;
+    for ($p = 0; $p < $lenghts; $p++) {
+      $string .= $characters[mt_rand(0, strlen($characters)-1)];
+    }
+    return $string;
+
+  }//end randomChars()

@@ -2,8 +2,11 @@
       <div class="navbar-inner">
         <div class="container">
             <?php
-                echo $this->Html->link(__('Room Mate'), Router::url('/', true), array('class' => 'brand'));
+                $title = isset($roomName) ? 'Room Mate: '.$roomName : 'Room Mate';
+                
+                echo $this->Html->link(__($title), Router::url('/', true), array('class' => 'brand'));
 
+               
                 $options = array(
                     array(
                         'title' => 'Products',
@@ -39,14 +42,20 @@
             //$uiName = ($username != ' ') ? $username : 'User';           
             $logOutMenu = array(
                 array(
-                        'title'    => $username,
-                        'url'   => array('controller' => 'users', 'action' =>'view'),
-                      
-                    ),
-                array(
-                    'title' => 'Log Out',
-                    'url'   => array('controller' => 'users', 'action' =>'logout', 'admin' => false),
-                ),
+                    'title'    => $username,
+                    'dropdown' => array(
+                        array(
+                            'title' => 'Get Code',
+                            'url'     => array('controller' => 'users', 'action' => 'get_code') 
+                        ),
+                        array(
+                            'title' => 'Log Out',
+                            'url'   => array('controller' => 'users', 'action' =>'logout'),
+                        )                              
+                    )
+                    
+                  
+                ),               
             );
 
 
@@ -54,11 +63,14 @@
                 array(
                         'title'    => 'Login',
                         'url'   => array('controller' => 'users', 'action' =>'login'),
-                      
                     ),
                 array(
                     'title' => 'Signup',
                     'url'   => array('controller' => 'users', 'action' =>'signup'),
+                ),
+                array(
+                    'title' => 'Create New Room',
+                    'url'   => array('controller' => 'rooms', 'action' =>'add'),
                 ),
             );
 

@@ -335,3 +335,115 @@ Stack Trace:
 #1 /opt/lampp/htdocs/roommet/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #2 /opt/lampp/htdocs/roommet/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2013-07-08 12:22:46 Error: Fatal Error (4): syntax error, unexpected ')' in [/opt/lampp/htdocs/roommet/app/Controller/RoomsController.php, line 26]
+2013-07-08 12:22:46 Error: [FatalErrorException] syntax error, unexpected ')'
+Request URL: /roommet/rooms/add
+Stack Trace:
+#0 /opt/lampp/htdocs/roommet/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/opt/lampp/htdo...', 26)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/opt/lampp/htdo...', 26, Array)
+#2 /opt/lampp/htdocs/roommet/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/opt/lampp/htdo...', 26, Array)
+#3 /opt/lampp/htdocs/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-07-08 12:36:13 Error: Fatal Error (1): Call to undefined function randomChars() in [/opt/lampp/htdocs/roommet/app/Controller/RoomsController.php, line 69]
+2013-07-08 12:36:13 Error: [FatalErrorException] Call to undefined function randomChars()
+Request URL: /roommet/rooms/add
+Stack Trace:
+#0 /opt/lampp/htdocs/roommet/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/opt/lampp/htdo...', 69)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/opt/lampp/htdo...', 69, Array)
+#2 /opt/lampp/htdocs/roommet/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/opt/lampp/htdo...', 69, Array)
+#3 /opt/lampp/htdocs/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-07-08 15:03:44 Error: Fatal Error (4): syntax error, unexpected ''url'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in [/opt/lampp/htdocs/roommet/app/View/Elements/navbar.ctp, line 53]
+2013-07-08 15:03:44 Error: [FatalErrorException] syntax error, unexpected ''url'' (T_CONSTANT_ENCAPSED_STRING), expecting ')'
+Request URL: /roommet/users
+Stack Trace:
+#0 /opt/lampp/htdocs/roommet/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/opt/lampp/htdo...', 53)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/opt/lampp/htdo...', 53, Array)
+#2 /opt/lampp/htdocs/roommet/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/opt/lampp/htdo...', 53, Array)
+#3 /opt/lampp/htdocs/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-07-08 15:04:18 Error: [MissingActionException] Action UsersController::get_code() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'get_code',
+)
+Request URL: /roommet/users/get_code
+Stack Trace:
+#0 /opt/lampp/htdocs/roommet/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /opt/lampp/htdocs/roommet/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /opt/lampp/htdocs/roommet/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-07-08 15:07:20 Error: Fatal Error (4): syntax error, unexpected ';' in [/opt/lampp/htdocs/roommet/app/Controller/UsersController.php, line 264]
+2013-07-08 15:07:20 Error: [FatalErrorException] syntax error, unexpected ';'
+Request URL: /roommet/users/get_code
+Stack Trace:
+#0 /opt/lampp/htdocs/roommet/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/opt/lampp/htdo...', 264)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/opt/lampp/htdo...', 264, Array)
+#2 /opt/lampp/htdocs/roommet/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/opt/lampp/htdo...', 264, Array)
+#3 /opt/lampp/htdocs/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-07-08 15:07:34 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Room.code' in 'field list'
+Request URL: /roommet/users/get_code
+Stack Trace:
+#0 /opt/lampp/htdocs/roommet/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /opt/lampp/htdocs/roommet/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('SELECT `Room`.`...', Array)
+#2 /opt/lampp/htdocs/roommet/lib/Cake/Model/Datasource/DboSource.php(670): DboSource->execute('SELECT `Room`.`...', Array, Array)
+#3 /opt/lampp/htdocs/roommet/lib/Cake/Model/Datasource/DboSource.php(1081): DboSource->fetchAll('SELECT `Room`.`...', false)
+#4 /opt/lampp/htdocs/roommet/lib/Cake/Model/Model.php(2688): DboSource->read(Object(User), Array)
+#5 /opt/lampp/htdocs/roommet/lib/Cake/Model/Model.php(1552): Model->find('first', Array)
+#6 /opt/lampp/htdocs/roommet/app/Controller/UsersController.php(264): Model->field('Room.code', Array)
+#7 [internal function]: UsersController->get_code()
+#8 /opt/lampp/htdocs/roommet/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#9 /opt/lampp/htdocs/roommet/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 /opt/lampp/htdocs/roommet/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#11 /opt/lampp/htdocs/roommet/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-07-08 15:10:43 Error: Fatal Error (1): Class 'AuthComponent' not found in [/opt/lampp/htdocs/roommet/app/Config/routes.php, line 29]
+2013-07-08 15:10:43 Error: [FatalErrorException] Class 'AuthComponent' not found
+Request URL: /roommet/
+Stack Trace:
+#0 /opt/lampp/htdocs/roommet/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Class 'AuthComp...', '/opt/lampp/htdo...', 29)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'AuthComp...', '/opt/lampp/htdo...', 29, Array)
+#2 /opt/lampp/htdocs/roommet/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 1, 'Class 'AuthComp...', '/opt/lampp/htdo...', 29, Array)
+#3 /opt/lampp/htdocs/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-07-08 15:10:59 Error: Fatal Error (1): Using $this when not in object context in [/opt/lampp/htdocs/roommet/app/Config/routes.php, line 29]
+2013-07-08 15:10:59 Error: [FatalErrorException] Using $this when not in object context
+Request URL: /roommet/
+Stack Trace:
+#0 /opt/lampp/htdocs/roommet/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Using $this whe...', '/opt/lampp/htdo...', 29)
+#1 [internal function]: ErrorHandler::handleError(1, 'Using $this whe...', '/opt/lampp/htdo...', 29, Array)
+#2 /opt/lampp/htdocs/roommet/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 1, 'Using $this whe...', '/opt/lampp/htdo...', 29, Array)
+#3 /opt/lampp/htdocs/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-07-08 15:14:29 Error: Fatal Error (1): Using $this when not in object context in [/opt/lampp/htdocs/roommet/app/Config/routes.php, line 29]
+2013-07-08 15:14:29 Error: [FatalErrorException] Using $this when not in object context
+Request URL: /roommet/
+Stack Trace:
+#0 /opt/lampp/htdocs/roommet/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Using $this whe...', '/opt/lampp/htdo...', 29)
+#1 [internal function]: ErrorHandler::handleError(1, 'Using $this whe...', '/opt/lampp/htdo...', 29, Array)
+#2 /opt/lampp/htdocs/roommet/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 1, 'Using $this whe...', '/opt/lampp/htdo...', 29, Array)
+#3 /opt/lampp/htdocs/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-07-08 15:30:23 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in where clause is ambiguous
+Request URL: /roommet/users/get_code
+Stack Trace:
+#0 /opt/lampp/htdocs/roommet/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /opt/lampp/htdocs/roommet/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('SELECT `User`.`...', Array)
+#2 /opt/lampp/htdocs/roommet/lib/Cake/Model/Datasource/DboSource.php(670): DboSource->execute('SELECT `User`.`...', Array, Array)
+#3 /opt/lampp/htdocs/roommet/lib/Cake/Model/Datasource/DboSource.php(1081): DboSource->fetchAll('SELECT `User`.`...', false)
+#4 /opt/lampp/htdocs/roommet/lib/Cake/Model/Model.php(2688): DboSource->read(Object(User), Array)
+#5 /opt/lampp/htdocs/roommet/app/Controller/UsersController.php(272): Model->find('first', Array)
+#6 [internal function]: UsersController->get_code()
+#7 /opt/lampp/htdocs/roommet/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#8 /opt/lampp/htdocs/roommet/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#9 /opt/lampp/htdocs/roommet/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#10 /opt/lampp/htdocs/roommet/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}

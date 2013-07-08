@@ -116,7 +116,12 @@ class AppController extends Controller {
             'div'   => array('class' => 'form-actions'),
         )
     );
+    if ($this->Auth->user('id')) {
+      $users = ClassRegistry::init('User')->find('first', array('conditions' => array('User.id' => $this->Auth->user('id') )));
+      $this->set('roomName', $users['Room']['name']);
 
+    }
+   
   }
 
 
