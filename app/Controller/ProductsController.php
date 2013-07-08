@@ -225,7 +225,14 @@ class ProductsController extends AppController {
 
 	function total_by_date() {
 
-		$users = $this->Product->User->find('list', array('fields' => array('nickname')));
+		$users = $this->Product->User->find('list', 
+			array(
+				'fields' => array('nickname'),
+				'conditions' => array(
+					'User.room_id' => $this->Auth->user('room_id')
+			    )
+			)
+		);
 		
 		if ($this->request->is('post') || $this->request->is('put')) {
 			       

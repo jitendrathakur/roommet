@@ -472,3 +472,23 @@ Stack Trace:
 #3 /opt/lampp/htdocs/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2013-07-08 16:56:09 Error: Fatal Error (4): syntax error, unexpected ')' in [/opt/lampp/htdocs/roommet/app/Controller/ProductsController.php, line 234]
+2013-07-08 16:56:09 Error: [InternalErrorException] Internal Server Error
+Request URL: /roommet/products/total_by_date
+Stack Trace:
+#0 /opt/lampp/htdocs/roommet/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/opt/lampp/htdo...', 234)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/opt/lampp/htdo...', 234, Array)
+#2 /opt/lampp/htdocs/roommet/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/opt/lampp/htdo...', 234, Array)
+#3 /opt/lampp/htdocs/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-07-08 16:56:40 Error: Fatal Error (4): syntax error, unexpected ';' in [/opt/lampp/htdocs/roommet/app/Controller/ProductsController.php, line 234]
+2013-07-08 16:56:40 Error: [InternalErrorException] Internal Server Error
+Request URL: /roommet/products/total_by_date
+Stack Trace:
+#0 /opt/lampp/htdocs/roommet/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/opt/lampp/htdo...', 234)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/opt/lampp/htdo...', 234, Array)
+#2 /opt/lampp/htdocs/roommet/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/opt/lampp/htdo...', 234, Array)
+#3 /opt/lampp/htdocs/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
