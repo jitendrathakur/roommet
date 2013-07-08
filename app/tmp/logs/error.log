@@ -492,3 +492,12 @@ Stack Trace:
 #3 /opt/lampp/htdocs/roommet/lib/Cake/Core/App.php(900): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2013-07-08 17:16:52 Error: [MethodNotAllowedException] Method Not Allowed
+Request URL: /roommet/products/edit/5
+Stack Trace:
+#0 [internal function]: ProductsController->edit('5')
+#1 /opt/lampp/htdocs/roommet/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(ProductsController), Array)
+#2 /opt/lampp/htdocs/roommet/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /opt/lampp/htdocs/roommet/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest), Object(CakeResponse))
+#4 /opt/lampp/htdocs/roommet/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}

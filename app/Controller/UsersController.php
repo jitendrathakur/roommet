@@ -77,8 +77,8 @@ class UsersController extends AppController {
 			if ($flag && $this->User->save($this->request->data)) {
 				$this->setFlash(__('The user has been saved', 'success'));
 				$this->redirect(array('action' => 'login'));
-			} else {
-				$this->setFlash(__('The code you inserted was not correct. Please, try again.'), 'error');
+			} else if($flag) {
+				$this->setFlash(__('The user could not be saved. Please, try again.'), 'error');
 			}
 		}
 	}
