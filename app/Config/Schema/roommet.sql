@@ -19,8 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `roommet`
 --
-CREATE DATABASE IF NOT EXISTS `roommet` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `roommet`;
+
 
 -- --------------------------------------------------------
 

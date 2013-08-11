@@ -76,5 +76,12 @@ echo $this->Form->end($twitterBootstrapEndOptions);
 
 <?php endif; ?>
 
+<?php if (!empty($total) && empty($this->request->data['Product']['user_id'])) : ?>
+
+<?php echo $this->Html->link('Make Archeive', array('controller' => 'products', 'action' => 'archeive', $this->request->data['Product']['start_date'], $this->request->data['Product']['end_date']), array('class' => 'btn btn-success'));
+
+endif; ?>
+
+
 
 

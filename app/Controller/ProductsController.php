@@ -29,11 +29,22 @@ class ProductsController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function index($archeive = null) {		
 
         $this->paginate = array(
-	        'conditions' => array('Product.room_id' => $this->Auth->user('room_id'))	       
+	        'conditions' => array(
+	        	'Product.room_id' => $this->Auth->user('room_id'),
+	        	'Product.is_archeive' => 0
+	        )	       
 	    ); 
+	    if ($archeive == 'archeive') {
+	    	$this->paginate = array(
+		        'conditions' => array(
+		        	'Product.room_id' => $this->Auth->user('room_id'),
+		        	'Product.is_archeive' => 1
+		        )	       
+		    ); 		
+		}
 		$this->Product->recursive = 0;
 		$this->set('products', $this->paginate());
 	}
@@ -241,7 +252,8 @@ class ProductsController extends AppController {
 					$this->request->data['Product']['start_date'],
 					$this->request->data['Product']['end_date']
 				),
-				'Product.room_id' => $this->Auth->user('room_id')
+				'Product.room_id' => $this->Auth->user('room_id'),
+				'Product.is_archeive' => 0
 			);
 
 			if (!empty($this->request->data['Product']['user_id'])) {
@@ -252,7 +264,8 @@ class ProductsController extends AppController {
 						$this->request->data['Product']['end_date']
 					),
 					'Product.room_id' => $this->Auth->user('room_id'),
-					'user_id' => $this->request->data['Product']['user_id']
+					'user_id' => $this->request->data['Product']['user_id'],
+					'Product.is_archeive' => 0
 
 				);
 
@@ -293,4 +306,49 @@ class ProductsController extends AppController {
 		$this->set(compact('users', 'totalAmount', 'data', 'total'));
 
 	}
+
+
+	function archeive($startDate, $endDate) {
+
+		
+		
+		//if ($this->request->is('post') || $this->request->is('put')) {
+			       
+			$conditions = array('Product.created BETWEEN ? AND ?' => 
+				array(
+					$startDate,
+					$endDate
+				),
+				'Product.room_id' => $this->Auth->user('room_id')
+			);
+
+			
+
+			$result = $this->Product->find('list', 
+				array(
+					'fields' => array('Product.price'),
+					'conditions' => $conditions
+				)
+			);	
+
+
+			foreach($result as $id => $price) {
+				$this->Product->id = $id;
+				$data = array('is_archeive' => 1);
+				$this->Product->save($data);
+			}
+
+			$this->redirect(array('action' => 'index'));
+
+			debug($result);
+			exit;
+
+		
+
+		//}
+		
+		
+
+	}//end archeive()
+
 }

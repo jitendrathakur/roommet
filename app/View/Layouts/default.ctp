@@ -30,10 +30,9 @@ $cakeDescription = __d('cake_dev', '');
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css(array('bootstrap.min', 'bootstrap-responsive.min', 'custom'));
-		echo $this->Html->script(array('jquery-1.7.1.min', 'bootstrap.min', 'custom')); ?>
-		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		echo $this->Html->css(array('bootstrap.min', 'bootstrap-responsive.min', 'jquery.ui.1.8.16.ie', 'jquery-ui-1.8.16.custom', 'custom'));
+		echo $this->Html->script(array('jquery-1.7.1.min', 'jquery-ui-1.8.20.custom.min', 'bootstrap.min', 'custom')); ?>
+		
 		<?php
 
 		echo $this->fetch('meta');

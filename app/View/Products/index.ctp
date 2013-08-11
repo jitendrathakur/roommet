@@ -1,3 +1,4 @@
+<?php echo $this->Html->link('Archeive', array('action' => 'index', 'archeive')); ?>
 <div class="products index well">
 	<h2><?php echo __('Products'); ?></h2>
 	<table cellpadding="0" cellspacing="0" class="table table-striped table-condensed table-bordered">
